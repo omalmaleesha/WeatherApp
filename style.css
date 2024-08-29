@@ -1,0 +1,71 @@
+.navbarEdite{
+    background-color: #021526;
+}
+.body{
+    background: linear-gradient(to bottom, #021526, #004d7a);
+    height: 100vh;
+}
+/* From Uiverse.io by biswacpcode */ 
+.buttonHome {
+    color: white;
+    text-decoration: none;
+    border: none;
+    background: none;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .buttonHome::before {
+    margin-left: auto;
+  }
+  
+  .buttonHome::after, .buttonHome::before {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #000000;
+    display: block;
+    transition: 0.5s;
+  }
+  
+  .buttonHome:hover::after, .buttonHome:hover::before {
+    width: 100%;
+  }
+  /* From Uiverse.io by biswacpcode */ 
+.buttonOthers {
+    color: white;
+    text-decoration: none;
+    border: none;
+    background: none;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .buttonOthers::before {
+    margin-left: auto;
+  }
+  
+  .buttonOthers::after, .buttonOthers::before {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #c1f6ff;
+    display: block;
+    transition: 0.5s;
+  }
+  
+  .buttonOthers:hover::after, .buttonOthers:hover::before {
+    width: 100%;
+  }
+
+@media (min-width: 992px) {
+    .input-group input,
+    .input-group button {
+        width: 9vw;
+        height: 8vh; /* Increase height on large screens */
+        font-size: 1.2rem; /* Increase font size */
+    }
+}
+
+
+
