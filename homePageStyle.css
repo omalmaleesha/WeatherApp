@@ -67,3 +67,86 @@
         font-size: 1.2rem; /* Increase font size */
     }
 }
+
+/*input field opacity*/
+.input-field {
+    opacity: 0.50; /* Default opacity */
+    transition: opacity 0.3s ease; /* Smooth transition effect */
+  }
+  
+  /* Change opacity on hover and focus */
+  .input-field:hover, 
+  .input-field:focus {
+    opacity: 1;
+  }
+  
+  
+  /*search button*/
+  /* From Uiverse.io by Madflows */ 
+  .buttonSearch {
+    position: relative;
+    overflow: hidden;
+    height: 3rem;
+    padding: 0 2rem;
+    border-radius: 1.5rem;
+    background: #3d3a4e;
+    background-size: 400%;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.01s ease; /* Add transition for opacity */
+  }
+  
+  /* Handle hover and focus for desktop */
+  .buttonSearch:hover::before,
+  .buttonSearch:focus::before {
+    transform: scaleX(1);
+  }
+  
+  /* Button content */
+  .buttonSearch-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Hover effect with gradient background */
+  .buttonSearch::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    width: 100%;
+    height: inherit;
+    border-radius: inherit;
+    background: linear-gradient(
+        82.3deg,
+        rgba(150, 93, 233, 1) 10.8%,
+        rgba(99, 88, 238, 1) 94.3%
+    );
+    transition: all 0.01s;
+  }
+  
+  /* Add opacity effect */
+  .buttonSearch:hover,
+  .buttonSearch:focus {
+    opacity: 1; /* Full opacity on hover/focus */
+  }
+  
+  /* Optional: Adjust button opacity for mobile */
+  @media (max-width: 768px) {
+    .buttonSearch {
+        /* Ensure button adjusts for smaller screens */
+        height: 2.5rem;
+        padding: 0 1.5rem;
+    }
+  }
+  @media (min-width: 992px) {
+    .input-group input,
+    .input-group button {
+        width: 9vw;
+        height: 8vh; /* Increase height on large screens */
+        font-size: 1.2rem; /* Increase font size */
+    }
+}
