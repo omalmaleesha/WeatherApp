@@ -153,7 +153,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  transition: background-image 1s ease-in-out;
 }
 
 /* Styling for the overlay div that covers half of the upper div */
