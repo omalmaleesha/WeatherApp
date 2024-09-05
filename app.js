@@ -16,3 +16,23 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 });
+
+
+// function updateCityTime() {
+//     const now = new Date();
+//     const options = {
+//       timeZone: 'America/New_York', // Change this to the desired city/country time zone
+//       hour: '2-digit',
+//       minute: '2-digit',
+//       second: '2-digit',
+//       hour12: false // 24-hour format; set to true for 12-hour AM/PM format
+//     };
+    
+//     const formatter = new Intl.DateTimeFormat('en-US', options);
+//     const timeString = formatter.format(now);
+    
+//     document.getElementById('cityClock').textContent = timeString;
+//   }
+
+//   // Update the city time every second
+//   setInterval(updateCityTime, 1000);
