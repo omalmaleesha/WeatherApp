@@ -14,15 +14,9 @@ document.addEventListener("DOMContentLoaded", function() {
             
         });
     }
-    var btnlanding = document.getElementById('navigateLanding');
-    if (btnlanding) {
-        btnlanding.addEventListener('click' , function(){
-            window.location.href = 'landing.html'; // navigate to the main page
-            
-        });
-    }
-
+   
 });
+
 
 
 // function updateCityTime() {
