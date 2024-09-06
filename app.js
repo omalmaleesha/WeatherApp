@@ -10,7 +10,14 @@ document.addEventListener("DOMContentLoaded", function() {
     var btnHome = document.getElementById('homepageOnAction');
     if (btnHome) {
         btnHome.addEventListener('click' , function(){
-            window.location.href = 'index.html'; // navigate to the main page
+            window.location.href = 'landing.html'; // navigate to the main page
+            
+        });
+    }
+    var btnlanding = document.getElementById('navigateLanding');
+    if (btnlanding) {
+        btnlanding.addEventListener('click' , function(){
+            window.location.href = 'landing.html'; // navigate to the main page
             
         });
     }

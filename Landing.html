@@ -1,38 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="landingStyle.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkyCast</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="fonts.css">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <title>Document</title>
-</head>
-<body>
+    
+  </head>
+  <body class="body">
 
-    <div class="background-image">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-12 text-center">
-              <h1 class="typewriter size fw-bold">Sky Cast Weather</h1>
-            </div>
-            <div class="col-12 text-center">
-              <!-- Responsive button -->
-              <button class="buttonStyle btn-lg my-3">Get Started
-              </button>
-            </div>
+  <nav
+      class="navbar navbar-expand-lg navbarEdite fixed-top"
+      aria-label="Thirteenth navbar example"
+    >
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarsExample11"
+          aria-controls="navbarsExample11"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <div class="d-flex align-items-center">
+            <img
+              src="img/WeatherIcon.png"
+              alt="WeatherIcon"
+              style="width: 45px; height: 45px"
+            />
+            <span
+              class="ms-2 text-white d-flex flex-column"
+              style="color: aliceblue; font-size: small"
+            >
+              <span class="d-flex justify-content-start fw-bold"
+                >SkyCast Weather</span
+              >
+              <span class="text-white mt-1" style="font-size: smaller"
+                >Source for weather updates</span
+              >
+            </span>
+          </div>
+        </button>
+        <div
+          class="collapse navbar-collapse d-lg-flex justify-content-center"
+          id="navbarsExample11"
+        >
+          <img
+            src="img/WeatherIcon.png"
+            alt="WeatherIcon"
+            class="d-none d-lg-block"
+            style="width: 45px; height: 45px"
+          />
+          <a
+            class="navbar-brand col-lg-2 me-0 mb-0 d-none d-lg-block"
+            href="#"
+            style="color: aliceblue; font-size: small; font-weight: bold"
+            >SkyCast Weather
+            <div
+              class="text-white mt-0 d-none d-lg-block"
+              style="font-size: smaller"
+            >
+              source for weather updates
+            </div></a
+          >
+
+          <ul class="navbar-nav col-lg-3 justify-content-lg-end"></ul>
+          <div
+            class="d-flex flex-column flex-lg-row col-lg-6 justify-content-lg-end align-items-lg-end"
+          >
+            <ul
+              class="navbar-nav mb-1 mb-lg-0 m-1 justify-content-end w-100 w-lg-auto"
+            >
+              <li class="nav-item">
+                <a class="nav-link text-white buttonOthers" href="#">News</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white buttonOthers" href="#"
+                  >Location</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white buttonOthers" href="#">Contact</a>
+              </li>
+            </ul>
+            <button
+              id="homepageOnAction"
+              class="btn mx-lg-0 rounded-5 text-black fw-bolder buttonHome"
+              style="background-color: #ace2e1"
+            >
+              Home
+            </button>
           </div>
         </div>
       </div>
+  </nav>
 
-      <script
+
+
+ <div id="bgImageDiv" class="bg-image text-center text-white d-flex flex-column justify-content-center align-items-center pt-2 mt-2">
+  <h1 class="mb-4 lato-bold">Sky Cast Climate</h1>
+  <div class="input-group mb-3 w-75 w-md-50 w-lg-25">
+      <input id="inputSearchData"  type="text" class="form-control rounded-start-pill dosis input-field" placeholder="Find A Location" aria-label="Search" />
+      <button id="btnHomePageOnAction" class="btn rounded-end-5 fw-bolder text-white buttonSearch" type="button" style="background-color: #161E3C;"><span class="buttonSearch-content">Search</span></button>
+  </div>
+ </div>
+
+
+<div class="overlay-container container rounded-3" style="background-color: #021526;" >
+  <div class="table-container" style="background-color: #021526;">
+      <div class="table-responsive">
+          <table class="table table-bordered">
+              <thead class="thead-light">
+                  <tr>
+                      <th scope="col" id="date1" class="col-big" style="background-color: #182C61;">Date 1<small>time</small></th>
+                      <th scope="col" id="date2" class="col-small" style="background-color: #021526;">Date 2</th>
+                      <th scope="col" id="date3" class="col-small" style="background-color: #182C61;">Date 3</th>
+                      <th scope="col" id="date4" class="col-small" style="background-color: #021526;">Date 4</th>
+                      <th scope="col" id="date5" class="col-small" style="background-color: #182C61;">Date 5</th>
+                      <th scope="col" id="date6" class="col-small" style="background-color: #021526;">Date 6</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td class="col-big" data-label="Header 1" style="background-color: #182C61; color: azure;">
+                        <div class="container">
+                          <!-- Row 1 -->
+                          <div class="row">
+                            <div class="col-12">
+                              <p id="cityName">City</p>
+                            </div>
+                            
+                          </div>
+                          
+                          <!-- Row 2 -->
+                          <div class="row">
+                            <div class="col-12">
+                              <p id="climate">climate</p>
+                            </div>
+                          </div>
+                          
+                          <!-- Row 3 -->
+                          <div class="row">
+                            <div class="col-12 col-sm-6 col-md-4">
+                              <p>Column 1 of Row 3</p>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-4">
+                              <p>Column 2 of Row 3</p>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-4">
+                              <p>Column 3 of Row 3</p>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </td>
+                      <td class="col-small" data-label="Header 2" style="background-color: #021526;">
+                        <div class="container">
+                          <!-- Row 1 -->
+                          <div class="row">
+                            <div class="col-12">
+                              <p>Content for Row 1</p>
+                            </div>
+                          </div>
+                          
+                          <!-- Row 2 -->
+                          <div class="row">
+                            <div class="col-12">
+                              <p>Content for Row 2</p>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </td>
+                      <td class="col-small" data-label="Header 3" style="background-color: #182C61;"><div class="container">
+                        <!-- Row 1 -->
+                        <div class="row">
+                          <div class="col-12">
+                            <p>Content for Row 1</p>
+                          </div>
+                        </div>
+                        
+                        <!-- Row 2 -->
+                        <div class="row">
+                          <div class="col-12">
+                            <p>Content for Row 2</p>
+                          </div>
+                        </div>
+                      </div>
+                      </td>
+                      <td class="col-small" data-label="Header 4" style="background-color: #021526;"><div class="container">
+                        <!-- Row 1 -->
+                        <div class="row">
+                          <div class="col-12">
+                            <p>Content for Row 1</p>
+                          </div>
+                        </div>
+                        
+                        <!-- Row 2 -->
+                        <div class="row">
+                          <div class="col-12">
+                            <p>Content for Row 2</p>
+                          </div>
+                        </div>
+                      </div>
+                      </td>
+                      <td class="col-small" data-label="Header 5" style="background-color: #182C61;"><div class="container">
+                        <!-- Row 1 -->
+                        <div class="row">
+                          <div class="col-12">
+                            <p>Content for Row 1</p>
+                          </div>
+                        </div>
+                        
+                        <!-- Row 2 -->
+                        <div class="row">
+                          <div class="col-12">
+                            <p>Content for Row 2</p>
+                          </div>
+                        </div>
+                      </div>
+                      </td>
+                      <td class="col-small" data-label="Header 6" style="background-color: #021526;"><div class="container">
+                        <!-- Row 1 -->
+                        <div class="row">
+                          <div class="col-12">
+                            <p>Content for Row 1</p>
+                          </div>
+                        </div>
+                        
+                        <!-- Row 2 -->
+                        <div class="row">
+                          <div class="col-12">
+                            <p>Content for Row 2</p>
+                          </div>
+                        </div>
+                      </div>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+
+<!-- Header Section -->
+<header class="site-header">
+  <span>Location</span>
+  <button class="btn btn-primary">Add</button>
+  <div class="header-line mt-1 w-100"></div>
+</header>
+
+
+<div class="container mt-4">
+  <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="custom-div">Div 1</div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="custom-div">Div 2</div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="custom-div">Div 3</div>
+      </div>
+  </div>
+</div>
+
+<header class="site-header">
+  Broadcast
+  <div class="header-line"></div>
+</header>
+
+<div class="container mt-4">
+  <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="image-overlay-div" style="background-image: url('img/bimg\ \(1\).jpeg');">
+              <h2 class="fw-bolder">Sunny</h2>
+              <p>A sunny day features clear skies, bright sunshine, and no precipitation.</p>
+          </div>
+          <div class="content">
+              <h3>Sunny</h3>
+              <p>A sunny day is characterized by clear skies with minimal or no cloud cover. The sun shines brightly, and there's typically no precipitation. Temperatures may vary depending on the season and location, but sunny days often feel warmer due to direct sunlight. They are ideal for outdoor activities and often associated with bright, cheerful weather.</p>
+          </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="image-overlay-div" style="background-image: url('img/img3.jpeg');">
+              <h2 class="fw-bolder">Cloudy</h2>
+              <p>A cloudy day features overcast skies with little to no direct sunlight.</p>
+          </div>
+          <div class="content">
+              <h3>Cloudy</h3>
+              <p>A cloudy day is characterized by skies covered with clouds, which can vary from light, wispy cirrus clouds to thick, overcast layers. The sun's light is diffused, resulting in a softer, more subdued brightness.</p>
+          </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="image-overlay-div" style="background-image: url('img/bimg\ \(2\).jpg');">
+              <h2 class="fw-bolder">Rainnig</h2>
+              <p>A rainy day has continuous precipitation with overcast skies.</p>
+          </div>
+          <div class="content">
+              <h3>Rainnig</h3>
+              <p>A rainy day is marked by persistent precipitation, where rain falls continuously or intermittently throughout the day. Skies are typically overcast, with clouds covering the sun, leading to a dull and gray atmosphere. Rainfall can vary from light drizzles to heavy showers, affecting visibility and creating wet conditions.</p>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+<!-- Footer -->
+<footer class="footer mt-5">
+  <div class="container">
+      <p class="mb-0">© 2024 Your Company. All rights reserved.</p>
+      <p>
+          <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+      </p>
+      <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+  </div>
+</footer>
+
+
+
+
+    <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-   </body>
+    <script src="app.js"></script>
+  </body>
 </html>

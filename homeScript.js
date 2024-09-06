@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let city = data; 
         const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=yes`;
         const apiUrlPhoto = `https://api.unsplash.com/search/photos?query=${city}&client_id=${apiKeyPhoto}`;
+  
         fetch(apiUrlPhoto)
             .then(response =>{
                 //check if the response is okay
@@ -54,6 +55,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.log('Weather Data:', data);
                 
                 // Extract and display weather information
+                
+                
+
                 const temperature = data.current.temp_c;
                 document.getElementById('Temperature').innerText = temperature+"°C";
                 const condition = data.current.condition.text;
@@ -71,10 +75,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 const icon = data.current.condition.icon;
                 document.getElementById('icon-img').src = icon;
                 findWeatherImg(climate);
+                fetchDataOfComingclimate(city);
                 
-                console.log(`Temperature: ${temperature}°C`);
-                console.log(`Condition: ${condition}`);
-                console.log(`Humidity: ${humidity}%`);
+                
+                
+                
                 
             })
             .catch(error => {
@@ -123,3 +128,67 @@ function findWeatherImg(status){
         });
     }
 }
+
+function fetchDataOfComingclimate(city){
+    if(city!=null){
+        const apiDay = `http://api.weatherapi.com/v1/marine.json?key=${apiKey}&q=${city}&days=7`;
+        fetch(apiDay)
+        .then(response =>{
+            if(!response.ok){
+                throw new Error(`HTTP error! statuse: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data =>{
+
+            if (data.forecast && data.forecast.forecastday.length > 0) {
+                const forecastDays = data.forecast.forecastday;
+                
+                // Ensure we loop for exactly 6 cards, even if there are fewer days in the forecast
+                const numDays = Math.min(7, forecastDays.length);
+            
+                for (let i = 0; i < 7; i++) {
+                    const index = i + 1; // IDs start from 1
+                    if (i < numDays) {
+                        // Fill card with forecast data
+                        const dates = forecastDays[i].day;
+            
+                        const textClimate = dates.condition.text;
+                        document.getElementById('textOftheCard' + index).innerText = textClimate;
+            
+                        const imgUrl = `https:${dates.condition.icon}`;
+                        document.getElementById('iconOfTheCard' + index).src = imgUrl;
+            
+                        const temp = dates.avgtemp_c;
+                        document.getElementById('textOftheCardTemp' + index).innerText = temp + "°C";
+            
+                        const wind = dates.maxwind_mph;
+                        const uv = dates.uv;
+                        const humidity = dates.avghumidity;
+            
+                        document.getElementById('details' + index).innerHTML = `Wind: ${wind} mph, UV: ${uv}, Humidity: ${humidity}%`;
+                    } else {
+                        // Placeholder for missing forecast data
+                        document.getElementById('textOftheCard' + index).innerText = "No data available";
+                        document.getElementById('iconOfTheCard' + index).src = "path/to/placeholder.png"; // Placeholder image
+                        document.getElementById('textOftheCardTemp' + index).innerText = "--°C";
+                        document.getElementById('details' + index).innerText = "Wind: -- mph, UV: --, Humidity: --%";
+                    }
+                }
+            } else {
+                console.log('No climate data available');
+            }
+            
+
+        })
+        .catch(error => {
+            console.error('Error fetching weather data:', error);
+        });
+    }else {
+        console.log('No city found in localStorage.');
+    }
+}
+
+
+
+
