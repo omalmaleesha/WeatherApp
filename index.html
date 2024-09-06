@@ -34,6 +34,13 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script src="app.js"></script>
+    <script>
+      var btnlanding = document.getElementById('navigateLanding');
+      if (btnlanding) {
+        btnlanding.addEventListener('click' , function(){
+            window.location.href = 'landing.html'; // navigate to the main page
+        });
+      }
+    </script>
    </body>
 </html>
