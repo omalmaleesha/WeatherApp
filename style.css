@@ -148,17 +148,30 @@
 
 /* Styling for the upper div */
 #bgImageDiv {
-  background-image: url('img/searchbarimg.jpg');
-  height: 400px;
-  background-repeat: no-repeat;
-  background-size: cover;
+  height: 500px;
   position: relative;
+  overflow: hidden;
 }
+
+#bgImageDiv video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Ensures the video stays behind the text */
+}
+
+h1, .input-group {
+  z-index: 1; /* Keeps the text and search bar on top of the video */
+}
+
 
 /* Styling for the overlay div that covers half of the upper div */
 .overlay-container {
   position: relative;
-  margin-top: -100px; /* Pulls up the overlay div to cover half of the upper div */
+  margin-top: -50px; /* Pulls up the overlay div to cover half of the upper div */
   z-index: 1;
   padding-top: 12px;
   padding-bottom: 12px; /* Ensures it appears on top of the upper div */

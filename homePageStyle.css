@@ -7,17 +7,23 @@
     padding-bottom: 40px;
 }
 
-#location-divMain {
-  content: '';
+#location-divmain {
   position: relative;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('img/img5.jpg');
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
+}
 
+#location-divmain video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Ensures the video stays behind any content */
 }
 
 
