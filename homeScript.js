@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             })
             .catch(error => {
-                console.error('Error fetching the location photo:', error);
+                console.log('Error fetching the location photo:');
             });
         fetch(apiUrl)
             .then(response => {
@@ -74,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.getElementById('weather').innerText = climate;
                 const icon = data.current.condition.icon;
                 document.getElementById('icon-img').src = icon;
-                findWeatherImg(climate);
                 fetchDataOfComingclimate(city);
                 
                 
@@ -83,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 
             })
             .catch(error => {
-                console.error('Error fetching weather data:', error);
+                console.log('Error fetching weather data:');
             });
             //get the picture of the city 
 
@@ -92,42 +91,42 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-function findWeatherImg(status){
-    if(status != null){
-        const apiUrlPhoto = `https://api.unsplash.com/search/photos?query=${status}&client_id=${apiKeyPhoto}`;
-        fetch(apiUrlPhoto)
-        .then(response =>{
-            //check the response is okay
-            if(!response.ok){
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data =>{
-            console.log('Location photos:', data);
-                if (data.results.length > 0) {
-                    const imageUrl = data.results[0].urls.regular;
-                    console.log(imageUrl);
-                    const imageAlt = data.results[0].alt_description;
+// function findWeatherImg(status){
+//     if(status != null){
+//         const apiUrlPhoto = `https://api.unsplash.com/search/photos?query=${status}&client_id=${apiKeyPhoto}`;
+//         fetch(apiUrlPhoto)
+//         .then(response =>{
+//             //check the response is okay
+//             if(!response.ok){
+//                 throw new Error(`HTTP error! status: ${response.status}`);
+//             }
+//             return response.json();
+//         })
+//         .then(data =>{
+//             console.log('Location photos:', data);
+//                 if (data.results.length > 0) {
+//                     const imageUrl = data.results[0].urls.regular;
+//                     console.log(imageUrl);
+//                     const imageAlt = data.results[0].alt_description;
 
-                    // Set the background image of the div
-                    document.getElementById('location-divMain').style.backgroundImage = `url(${imageUrl})`;
-                    document.getElementById('location-divMain').style.backgroundSize = `cover`; 
-                    document.getElementById('location-divMain').style.backgroundPosition = `center`; 
-                    document.getElementById('location-divMain').style.height = `570px`;
+//                     // Set the background image of the div
+//                     document.getElementById('location-divMain').style.backgroundImage = `url(${imageUrl})`;
+//                     document.getElementById('location-divMain').style.backgroundSize = `cover`; 
+//                     document.getElementById('location-divMain').style.backgroundPosition = `center`; 
+//                     document.getElementById('location-divMain').style.height = `570px`;
                     
                   
  
                     
-                } else {
-                    console.log('No images found for this location.');
-                }
-        })
-        .catch(error => {
-            console.error('Error fetching the location photo:', error);
-        });
-    }
-}
+//                 } else {
+//                     console.log('No images found for this location.');
+//                 }
+//         })
+//         .catch(error => {
+//             console.error('Error fetching the location photo:', error);
+//         });
+//     }
+// }
 
 function fetchDataOfComingclimate(city){
     if(city!=null){
@@ -145,9 +144,9 @@ function fetchDataOfComingclimate(city){
                 const forecastDays = data.forecast.forecastday;
                 
                 // Ensure we loop for exactly 6 cards, even if there are fewer days in the forecast
-                const numDays = Math.min(7, forecastDays.length);
+                const numDays = Math.min(6, forecastDays.length);
             
-                for (let i = 0; i < 7; i++) {
+                for (let i = 0; i < 6; i++) {
                     const index = i + 1; // IDs start from 1
                     if (i < numDays) {
                         // Fill card with forecast data
@@ -170,7 +169,7 @@ function fetchDataOfComingclimate(city){
                     } else {
                         // Placeholder for missing forecast data
                         document.getElementById('textOftheCard' + index).innerText = "No data available";
-                        document.getElementById('iconOfTheCard' + index).src = "path/to/placeholder.png"; // Placeholder image
+                        document.getElementById('iconOfTheCard' + index).src = imgUrl; // Placeholder image
                         document.getElementById('textOftheCardTemp' + index).innerText = "--°C";
                         document.getElementById('details' + index).innerText = "Wind: -- mph, UV: --, Humidity: --%";
                     }
@@ -182,7 +181,7 @@ function fetchDataOfComingclimate(city){
 
         })
         .catch(error => {
-            console.error('Error fetching weather data:', error);
+            console.log('Error fetching weather data:');
         });
     }else {
         console.log('No city found in localStorage.');
