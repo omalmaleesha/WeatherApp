@@ -1,10 +1,11 @@
 // Get the city name from localStorage
-const data = localStorage.getItem('data');
+const data = localStorage.getItem('data')  || 'London';
+console.log(data);
 const apiKey = '85165bb0dba84049ada63652240109';
 const apiKeyPhoto = 'KXf8BBZrbxsPUPAtu41mE1_PxSmcK8s1OaQrrfOSj9M'; 
 
 
-const apifornowtoday = 'http://api.weatherapi.com/v1/forecast.json?key=85165bb0dba84049ada63652240109&q=London&days=1&aqi=yes&alerts=yes'; 
+const apifornowtoday = 'https://api.weatherapi.com/v1/forecast.json?key=85165bb0dba84049ada63652240109&q=London&days=1&aqi=yes&alerts=yes'; 
 
 
 // Wait until the DOM is fully loaded
@@ -12,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Check if data exists in localStorage
     if (data != null) {
         let city = data; 
-        const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=yes`;
+        const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=yes`;
         const apiUrlPhoto = `https://api.unsplash.com/search/photos?query=${city}&client_id=${apiKeyPhoto}`;
   
         fetch(apiUrlPhoto)
@@ -37,11 +38,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     document.getElementById('location-div').style.backgroundPosition = 'center'; 
                     
                 } else {
-                    console.log('No images found for this location.');
+                    console.E('No images found for this location.');
                 }
             })
             .catch(error => {
-                console.log('Error fetching the location photo:');
+                console.error('Error fetching the location photo:', error);
             });
         fetch(apiUrl)
             .then(response => {
@@ -82,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 
             })
             .catch(error => {
-                console.log('Error fetching weather data:');
+                console.error('Error fetching weather data:',error);
             });
             //get the picture of the city 
 
@@ -130,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function fetchDataOfComingclimate(city){
     if(city!=null){
-        const apiDay = `http://api.weatherapi.com/v1/marine.json?key=${apiKey}&q=${city}&days=7`;
+        const apiDay = `https://api.weatherapi.com/v1/marine.json?key=${apiKey}&q=${city}&days=7`;
         fetch(apiDay)
         .then(response =>{
             if(!response.ok){
@@ -169,7 +170,7 @@ function fetchDataOfComingclimate(city){
                     } else {
                         // Placeholder for missing forecast data
                         document.getElementById('textOftheCard' + index).innerText = "No data available";
-                        document.getElementById('iconOfTheCard' + index).src = imgUrl; // Placeholder image
+                        document.getElementById('iconOfTheCard' + index).src ="img/paris.jpg"; // Placeholder image
                         document.getElementById('textOftheCardTemp' + index).innerText = "--°C";
                         document.getElementById('details' + index).innerText = "Wind: -- mph, UV: --, Humidity: --%";
                     }
@@ -181,7 +182,7 @@ function fetchDataOfComingclimate(city){
 
         })
         .catch(error => {
-            console.log('Error fetching weather data:');
+            console.error('Error fetching weather data:',error);
         });
     }else {
         console.log('No city found in localStorage.');
