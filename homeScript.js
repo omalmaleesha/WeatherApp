@@ -1,5 +1,5 @@
 // Get the city name from localStorage
-const data = localStorage.getItem('data')  || 'London';
+const data = localStorage.getItem('data')  ;
 console.log(data);
 const apiKey = '85165bb0dba84049ada63652240109';
 const apiKeyPhoto = 'KXf8BBZrbxsPUPAtu41mE1_PxSmcK8s1OaQrrfOSj9M'; 

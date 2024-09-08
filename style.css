@@ -171,7 +171,7 @@ h1, .input-group {
 /* Styling for the overlay div that covers half of the upper div */
 .overlay-container {
   position: relative;
-  margin-top: -50px; /* Pulls up the overlay div to cover half of the upper div */
+  margin-top: -120px; /* Pulls up the overlay div to cover half of the upper div */
   z-index: 1;
   padding-top: 12px;
   padding-bottom: 12px; /* Ensures it appears on top of the upper div */
@@ -181,9 +181,7 @@ h1, .input-group {
   position: relative;
   z-index: 2;
   padding: 15px;
-  border: 1px solid #ccc;
   border-radius: 8px;
-  background-color: #f9f9f9;
 }
 
 
@@ -214,41 +212,85 @@ h1, .input-group {
   }
 }
 
+.scrollable-container {
+  overflow: auto; /* Enables both horizontal and vertical scrolling */
+  white-space: nowrap; /* Prevents content wrapping horizontally */
+}
+
+.rows {
+  display: flex; /* Ensures the content flows horizontally */
+  flex-wrap: nowrap; /* Prevents flex items from wrapping onto a new line */
+  flex-direction: row; /* Keeps items in a horizontal row */
+  height: 400px; /* Adjust height to trigger vertical scroll */
+}
+
+
+
 .custom-div {
+  position: relative; /* Set the div to relative so the video and content align */
   padding: 25px;
   height: 400px;
   text-align: center;
-  background-color: #f1f1f1;
-  border: 1px solid #ccc;
-  margin-bottom: 20px;
-  box-sizing: border-box; /* Ensures padding and border are included in height */
+  color: rgb(255, 255, 255);
+  border: 1px solid #000000;
+  margin-right: 20px; /* Adds space between the divs */
+  box-sizing: border-box;
+  width: 300px; /* Fixed width for horizontal scrolling */
+  overflow: hidden; /* Hides the overflow of the video */
 }
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover; /* Ensures the video covers the entire div */
+  z-index: -1; /* Places the video behind the content */
+}
+
+.content {
+  position: relative;
+  z-index: 1; /* Ensures the content is above the video */
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 1200px) {
   .custom-div {
       padding: 20px;
-      height: 350px;
+      height: 380px;
   }
 }
 
 @media (max-width: 992px) {
   .custom-div {
       padding: 15px;
-      height: 300px;
+      height: 380px;
   }
 }
 
 @media (max-width: 768px) {
   .custom-div {
       padding: 10px;
-      height: 250px;
+      height: 380px;
   }
 }
 
 @media (max-width: 576px) {
   .custom-div {
       padding: 5px;
-      height: 200px;
+      height: 380px;
   }
 }
 

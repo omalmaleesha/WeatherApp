@@ -12,7 +12,9 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    
+    <link rel="icon" href="img/WeatherIcon.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+
   </head>
   <body class="body">
 
@@ -110,30 +112,36 @@
     <source src="img/video.mp4" type="video/mp4">
   </video>
   
-  <h1 class="mb-2 lato-bold">Sky Cast Climate</h1>
+  <h1 class="mb-2 lato-bold text-black">Sky Cast Climate</h1>
   
   <div class="input-group mb-3 w-75 w-md-50 w-lg-25">
       <input id="inputSearchData" type="text" class="form-control rounded-start-pill dosis input-field" placeholder="Find A Location" aria-label="Search" />
       <button id="btnHomePageOnAction" class="btn rounded-end-5 fw-bolder text-white buttonSearch" type="button" style="background-color: #161E3C;">
         <span class="buttonSearch-content">Search</span>
       </button>
+      
   </div>
 </div>
 
 
 
-<div class="overlay-container container rounded-3" style="background-color: #021526;" >
-  <div class="table-container" style="background-color: #021526;">
+<div class="overlay-container container rounded-3" style="background-color: #02152641;" >
+  <div class="header text-center">
+    <h2 id="cityName" class="text-black fw-bolder">Table Header</h2>
+  </div>
+  <div class="table-container" style="background-color: #02152600;">
       <div class="table-responsive">
+
           <table class="table table-bordered">
+            
               <thead class="thead-light">
                   <tr>
-                      <th scope="col" id="date1" class="col-big" style="background-color: #182C61;">Date 1<small>time</small></th>
-                      <th scope="col" id="date2" class="col-small" style="background-color: #021526;">Date 2</th>
-                      <th scope="col" id="date3" class="col-small" style="background-color: #182C61;">Date 3</th>
-                      <th scope="col" id="date4" class="col-small" style="background-color: #021526;">Date 4</th>
-                      <th scope="col" id="date5" class="col-small" style="background-color: #182C61;">Date 5</th>
-                      <th scope="col" id="date6" class="col-small" style="background-color: #021526;">Date 6</th>
+                      <th scope="col" id="time" class="col-big text-white fw-bold text-center" style="background-color: #182C61;">Date 1<small>time</small></th>
+                      <th scope="col" id="date1" class="col-small text-white fw-bold text-center" style="background-color: #021526;">Date 2</th>
+                      <th scope="col" id="date2" class="col-small text-white fw-bold text-center" style="background-color: #182C61;">Date 3</th>
+                      <th scope="col" id="date3" class="col-small text-white fw-bold text-center" style="background-color: #021526;">Date 4</th>
+                      <th scope="col" id="date4" class="col-small text-white fw-bold text-center" style="background-color: #182C61;">Date 5</th>
+                      <th scope="col" id="date5" class="col-small text-white fw-bold text-center" style="background-color: #021526;">Date 6</th>
                   </tr>
               </thead>
               <tbody>
@@ -142,115 +150,140 @@
                         <div class="container">
                           <!-- Row 1 -->
                           <div class="row">
-                            <div class="col-12">
-                              <p id="cityName">City</p>
+                            <div class="col-12 text-center">
+                              <p id="city">City</p>
                             </div>
                             
                           </div>
                           
                           <!-- Row 2 -->
-                          <div class="row">
-                            <div class="col-12">
-                              <p id="climate">climate</p>
+                         
+                          <div class="row align-items-center d-flex justify-content-center">
+                            <div class="col-auto">
+                                <p id="TemperatureMain">climate</p>
+                            </div>
+                            <div class="col-auto">
+                                <img id="icon-imgs" src="" alt="icon">
                             </div>
                           </div>
+                        
+                        
                           
                           <!-- Row 3 -->
                           <div class="row">
-                            <div class="col-12 col-sm-6 col-md-4">
-                              <p >Column 1 of Row 3</p>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-4">
-                              <p>Column 2 of Row 3</p>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-4">
-                              <p>Column 3 of Row 3</p>
+                            <div class="col-12 text-center d-flex justify-content-around">
+                              <div>
+                                <p class="mb-0 text-wrap">Humidity</p>
+                                <p id="humidity" class="text-wrap">humidity</p>
+                              </div>
+                              <div>
+                                <p class="mb-0 text-wrap">UVN</p>
+                                <p id="uv" class="text-wrap">uv</p>
+                              </div>
+                              <div>
+                                <p class="mb-0 text-wrap">Wind</p>
+                                <p id="wind" class="text-wrap">wind</p>
+                              </div>
                             </div>
                           </div>
+                          
+                          
+                          
+                          
                         </div>
                         
                       </td>
                       <td class="col-small" data-label="Header 2" style="background-color: #021526;">
-                        <div class="container">
+                        <div class="container text-white">
                           <!-- Row 1 -->
                           <div class="row">
-                            <div class="col-12">
-                              <p>Content for Row 1</p>
+                            <div class="col-12 text-center">
+                              <img id="img-card1" src="" alt="">
+                              <h6 id="weather1">°C</h6>
+                              <p id="tempF1" >more</p>
                             </div>
                           </div>
                           
                           <!-- Row 2 -->
                           <div class="row">
-                            <div class="col-12">
-                              <p>Content for Row 2</p>
+                            <div class="col-12 text-center" >
+                              <p id="more1">Content for Row 2</p>
                             </div>
                           </div>
                         </div>
                         
                       </td>
-                      <td class="col-small" data-label="Header 3" style="background-color: #182C61;"><div class="container">
+                      <td class="col-small" data-label="Header 3" style="background-color: #182C61;"><div class="container text-white">
                         <!-- Row 1 -->
                         <div class="row">
-                          <div class="col-12">
-                            <p>Content for Row 1</p>
+                          <div class="col-12 text-center">
+                            <img id="img-card2" src="" alt="">
+                            <h6 id="weather2">°C</h6>
+                            <p id="tempF2" >more</p>
                           </div>
                         </div>
                         
                         <!-- Row 2 -->
                         <div class="row">
-                          <div class="col-12">
-                            <p>Content for Row 2</p>
+                          <div class="col-12 text-center">
+                            <p id="more2">Content for Row 2</p>
                           </div>
                         </div>
                       </div>
                       </td>
-                      <td class="col-small" data-label="Header 4" style="background-color: #021526;"><div class="container">
+                      <td class="col-small" data-label="Header 4" style="background-color: #021526;"><div class="container text-white">
                         <!-- Row 1 -->
                         <div class="row">
-                          <div class="col-12">
-                            <p>Content for Row 1</p>
+                          <div class="col-12 text-center">
+                            <img id="img-card3" src="" alt="">
+                            <h6 id="weather3">°C</h6>
+                            <p id="tempF3" >more</p>
                           </div>
                         </div>
                         
                         <!-- Row 2 -->
                         <div class="row">
-                          <div class="col-12">
-                            <p>Content for Row 2</p>
+                          <div class="col-12 text-center">
+                            <p id="more3">Content for Row 2</p>
                           </div>
                         </div>
                       </div>
                       </td>
-                      <td class="col-small" data-label="Header 5" style="background-color: #182C61;"><div class="container">
+                      <td class="col-small" data-label="Header 5" style="background-color: #182C61;"><div class="container text-white">
                         <!-- Row 1 -->
                         <div class="row">
-                          <div class="col-12">
-                            <p>Content for Row 1</p>
+                          <div class="col-12 text-center">
+                            <img id="img-card4" src="" alt="">
+                            <h6 id="weather4">°C</h6>
+                            <p id="tempF4" >more</p>
                           </div>
                         </div>
                         
                         <!-- Row 2 -->
                         <div class="row">
-                          <div class="col-12">
-                            <p>Content for Row 2</p>
+                          <div class="col-12 text-center">
+                            <p id="more4">Content for Row 2</p>
                           </div>
                         </div>
                       </div>
                       </td>
-                      <td class="col-small" data-label="Header 6" style="background-color: #021526;"><div class="container">
-                        <!-- Row 1 -->
-                        <div class="row">
-                          <div class="col-12">
-                            <p>Content for Row 1</p>
-                          </div>
-                        </div>
-                        
-                        <!-- Row 2 -->
-                        <div class="row">
-                          <div class="col-12">
-                            <p>Content for Row 2</p>
-                          </div>
+                      <td class="col-small" data-label="Header 6" style="background-color: #021526;"><div class="container text-white">
+                       <!-- Row 1 -->
+                       <div class="row">
+                        <div class="col-12 text-center">
+                          <img id="img-card5" src="" alt="">
+                          <h6 id="weather5">°C</h6>
+                          <p id="tempF5" >more</p>
                         </div>
                       </div>
+                      
+                      <!-- Row 2 -->
+                      <div class="row">
+                        <div class="col-12 text-center">
+                          <p id="more5">Content for Row 2</p>
+                        </div>
+                      </div>
+                    </div>
                       </td>
                   </tr>
               </tbody>
@@ -262,24 +295,139 @@
 <!-- Header Section -->
 <header class="site-header">
   <span>Location</span>
-  <button class="btn btn-primary">Add</button>
+  <button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">add</button>
+  
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-black" id="exampleModalLabel">Add New Location</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label text-black">Location</label>
+              <input id="textNewInput" type="text" class="form-control" id="recipient-name">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button id="addDivBtn" type="button" class="btn btn-primary" data-bs-dismiss="modal">Add Location</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <div class="header-line mt-1 w-100"></div>
 </header>
 
 
-<div class="container mt-4">
-  <div class="row">
+
+
+
+<div class="container mt-4 scrollable-container" id="divContainer">
+  <div class="rows flex-nowrap" id="divRow">
+      <!-- Existing divs -->
       <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="custom-div">Div 1</div>
+          <div class="custom-div">
+            <video autoplay muted loop  playsinline disablepictureinpicture  class="video-background">
+              <source src="img/video.mp4" type="video/mp4">
+          </video>
+          <div class="content text-black">
+            <div class="container">
+              <div class="row">
+                <div class="col-12 mb-1">
+                  <h2 id="citynameofdiv" class="text-black fw-bolder">Panadura</h2>
+                  <p id="detailsAboutClimate" class="text-black text-wrap">details about panadura weather right now</p>
+              </div>
+              
+                  <div class="col-12 mb-3">
+                    <div class="text-white d-flex flex-column align-items-center justify-content-center">
+                      <h3 id="tempC" class="text-black fw-bolder">°C</h3>
+                      <img id="iconCity" src="" alt="icon">
+                  </div>
+                  
+                  </div>
+                  <div class="col-12 mb-3">
+                      <div id="moredata" class="p-3  text-white">more
+                      </div>
+                  </div>
+                  <div class="col-12 mb-3">
+                      <div id="moreweather" class="p-3  text-white">Row 4</div>
+                  </div>
+              </div>
+          </div>
+          </div> 
+          </div>
       </div>
       <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="custom-div">Div 2</div>
+        <div class="custom-div">
+          <video autoplay muted loop  playsinline disablepictureinpicture  class="video-background">
+            <source src="img/video.mp4" type="video/mp4">
+        </video>
+        <div class="content text-black">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 mb-1">
+                <h2 id="citynameofdiv" class="text-black fw-bolder">Kurunegala</h2>
+                <p id="detailsAboutClimate" class="text-black text-wrap">details about panadura weather right now</p>
+            </div>
+            
+                <div class="col-12 mb-3">
+                  <div class="text-white d-flex flex-column align-items-center justify-content-center">
+                    <h3 id="tempC" class="text-black fw-bolder">°C</h3>
+                    <img id="iconCity" src="" alt="icon">
+                </div>
+                
+                </div>
+                <div class="col-12 mb-3">
+                    <div id="moredata" class="p-3  text-white">more
+                    </div>
+                </div>
+                <div class="col-12 mb-3">
+                    <div id="moreweather" class="p-3  text-white">Row 4</div>
+                </div>
+            </div>
+        </div>
+        </div> 
+        </div>
       </div>
       <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="custom-div">Div 3</div>
+        <div class="custom-div">
+          <video autoplay muted loop  playsinline disablepictureinpicture  class="video-background">
+            <source src="img/video.mp4" type="video/mp4">
+        </video>
+        <div class="content text-black">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 mb-1">
+                <h2 id="citynameofdiv" class="text-black fw-bolder">Colombo</h2>
+                <p id="detailsAboutClimate" class="text-black text-wrap">details about panadura weather right now</p>
+            </div>
+            
+                <div class="col-12 mb-3">
+                  <div class="text-white d-flex flex-column align-items-center justify-content-center">
+                    <h3 id="tempC" class="text-black fw-bolder">°C</h3>
+                    <img id="iconCity" src="" alt="icon">
+                </div>
+                
+                </div>
+                <div class="col-12 mb-3">
+                    <div id="moredata" class="p-3  text-white">more
+                    </div>
+                </div>
+                <div class="col-12 mb-3">
+                    <div id="moreweather" class="p-3  text-white">Row 4</div>
+                </div>
+            </div>
+        </div>
+        </div> 
+        </div>
       </div>
   </div>
 </div>
+
 
 <header class="site-header">
   Broadcast
@@ -291,7 +439,6 @@
       <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="image-overlay-div" style="background-image: url('img/bimg\ \(1\).jpeg');">
               <h2 class="fw-bolder">Sunny</h2>
-              <p>A sunny day features clear skies, bright sunshine, and no precipitation.</p>
           </div>
           <div class="content">
               <h3>Sunny</h3>
@@ -301,7 +448,6 @@
       <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="image-overlay-div" style="background-image: url('img/img3.jpeg');">
               <h2 class="fw-bolder">Cloudy</h2>
-              <p>A cloudy day features overcast skies with little to no direct sunlight.</p>
           </div>
           <div class="content">
               <h3>Cloudy</h3>
@@ -311,7 +457,6 @@
       <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="image-overlay-div" style="background-image: url('img/bimg\ \(2\).jpg');">
               <h2 class="fw-bolder">Rainnig</h2>
-              <p>A rainy day has continuous precipitation with overcast skies.</p>
           </div>
           <div class="content">
               <h3>Rainnig</h3>
@@ -346,6 +491,9 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script>// Get the row container
+      
+      </script>
     <script src="app.js"></script>
   </body>
 </html>
