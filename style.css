@@ -1,90 +1,91 @@
-
-
-.navbarEdite{
-    background-color: #021526;
+.navbarEdite {
+  background-color: #021526;
 }
-.body{
-    background-color:#021526;
-    height: 100vh;
-    padding-bottom: 40px;
+.body {
+  background-color: #021526;
+  height: 100vh;
+  padding-bottom: 40px;
 }
-/* From Uiverse.io by biswacpcode */ 
+/* From Uiverse.io by biswacpcode */
 .buttonHome {
-    color: white;
-    text-decoration: none;
-    border: none;
-    background: none;
-    font-weight: 600;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  .buttonHome::before {
-    margin-left: auto;
-  }
-  
-  .buttonHome::after, .buttonHome::before {
-    content: '';
-    width: 0%;
-    height: 2px;
-    background: #000000;
-    display: block;
-    transition: 0.5s;
-  }
-  
-  .buttonHome:hover::after, .buttonHome:hover::before {
-    width: 100%;
-  }
-  /* From Uiverse.io by biswacpcode */ 
+  color: white;
+  text-decoration: none;
+  border: none;
+  background: none;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+.buttonHome::before {
+  margin-left: auto;
+}
+
+.buttonHome::after,
+.buttonHome::before {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: #000000;
+  display: block;
+  transition: 0.5s;
+}
+
+.buttonHome:hover::after,
+.buttonHome:hover::before {
+  width: 100%;
+}
+/* From Uiverse.io by biswacpcode */
 .buttonOthers {
-    color: white;
-    text-decoration: none;
-    border: none;
-    background: none;
-    font-weight: 600;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  .buttonOthers::before {
-    margin-left: auto;
-  }
-  
-  .buttonOthers::after, .buttonOthers::before {
-    content: '';
-    width: 0%;
-    height: 2px;
-    background: #c1f6ff;
-    display: block;
-    transition: 0.5s;
-  }
-  
-  .buttonOthers:hover::after, .buttonOthers:hover::before {
-    width: 100%;
-  }
+  color: white;
+  text-decoration: none;
+  border: none;
+  background: none;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+.buttonOthers::before {
+  margin-left: auto;
+}
+
+.buttonOthers::after,
+.buttonOthers::before {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: #c1f6ff;
+  display: block;
+  transition: 0.5s;
+}
+
+.buttonOthers:hover::after,
+.buttonOthers:hover::before {
+  width: 100%;
+}
 
 @media (min-width: 992px) {
-    .input-group input,
-    .input-group button {
-        width: 9vw;
-        height: 8vh; /* Increase height on large screens */
-        font-size: 1.2rem; /* Increase font size */
-    }
+  .input-group input,
+  .input-group button {
+    width: 9vw;
+    height: 8vh; /* Increase height on large screens */
+    font-size: 1.2rem; /* Increase font size */
+  }
 }
 
 /*input field opacity*/
 .input-field {
-  opacity: 0.50; /* Default opacity */
+  opacity: 0.5; /* Default opacity */
   transition: opacity 0.3s ease; /* Smooth transition effect */
 }
 
 /* Change opacity on hover and focus */
-.input-field:hover, 
+.input-field:hover,
 .input-field:focus {
   opacity: 1;
 }
 
-
 /*search button*/
-/* From Uiverse.io by Madflows */ 
+/* From Uiverse.io by Madflows */
 .buttonSearch {
   position: relative;
   overflow: hidden;
@@ -123,9 +124,9 @@
   height: inherit;
   border-radius: inherit;
   background: linear-gradient(
-      82.3deg,
-      rgba(150, 93, 233, 1) 10.8%,
-      rgba(99, 88, 238, 1) 94.3%
+    82.3deg,
+    rgba(150, 93, 233, 1) 10.8%,
+    rgba(99, 88, 238, 1) 94.3%
   );
   transition: all 0.01s;
 }
@@ -139,12 +140,11 @@
 /* Optional: Adjust button opacity for mobile */
 @media (max-width: 768px) {
   .buttonSearch {
-      /* Ensure button adjusts for smaller screens */
-      height: 2.5rem;
-      padding: 0 1.5rem;
+    /* Ensure button adjusts for smaller screens */
+    height: 2.5rem;
+    padding: 0 1.5rem;
   }
 }
-
 
 /* Styling for the upper div */
 #bgImageDiv {
@@ -163,10 +163,10 @@
   z-index: -1; /* Ensures the video stays behind the text */
 }
 
-h1, .input-group {
+h1,
+.input-group {
   z-index: 1; /* Keeps the text and search bar on top of the video */
 }
-
 
 /* Styling for the overlay div that covers half of the upper div */
 .overlay-container {
@@ -184,7 +184,6 @@ h1, .input-group {
   border-radius: 8px;
 }
 
-
 .site-header {
   text-align: left;
   padding: 20px 10%;
@@ -197,13 +196,12 @@ h1, .input-group {
   width: 100%;
   height: 2px;
   background-color: #f5f5f5b4; /* Change the color as needed */
- 
 }
 
 @media (max-width: 768px) {
   .site-header {
-      font-size: 1.5rem;
-      padding: 20px 5%;
+    font-size: 1.5rem;
+    padding: 20px 5%;
   }
 
   .header-line {
@@ -224,12 +222,10 @@ h1, .input-group {
   height: 400px; /* Adjust height to trigger vertical scroll */
 }
 
-
-
 .custom-div {
   position: relative; /* Set the div to relative so the video and content align */
   padding: 25px;
-  height: 400px;
+  height: 410px;
   text-align: center;
   color: rgb(255, 255, 255);
   border: 1px solid #000000;
@@ -254,43 +250,31 @@ h1, .input-group {
   z-index: 1; /* Ensures the content is above the video */
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 @media (max-width: 1200px) {
   .custom-div {
-      padding: 20px;
-      height: 380px;
+    padding: 20px;
+    height: 390px;
   }
 }
 
 @media (max-width: 992px) {
   .custom-div {
-      padding: 15px;
-      height: 380px;
+    padding: 15px;
+    height: 390px;
   }
 }
 
 @media (max-width: 768px) {
   .custom-div {
-      padding: 10px;
-      height: 380px;
+    padding: 10px;
+    height: 390px;
   }
 }
 
 @media (max-width: 576px) {
   .custom-div {
-      padding: 5px;
-      height: 380px;
+    padding: 5px;
+    height: 390px;
   }
 }
 
@@ -306,11 +290,17 @@ h1, .input-group {
   align-items: center;
 }
 
-.image-overlay-div h2, .image-overlay-div p {
+.image-overlay-div h2,
+.image-overlay-div p {
   position: absolute;
   z-index: 2;
   padding: 10px;
-  background-color: rgba(0, 0, 0, 0.295); /* Semi-transparent background for readability */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.295
+  ); /* Semi-transparent background for readability */
   border-radius: 5px;
 }
 
@@ -331,23 +321,21 @@ h1, .input-group {
 
 @media (max-width: 992px) {
   .image-overlay-div {
-      height: 250px;
+    height: 250px;
   }
 }
 
 @media (max-width: 768px) {
   .image-overlay-div {
-      height: 200px;
+    height: 200px;
   }
 }
 
 @media (max-width: 576px) {
   .image-overlay-div {
-      height: 150px;
+    height: 150px;
   }
 }
-
-
 
 .footer {
   position: static;
@@ -380,6 +368,6 @@ h1, .input-group {
 
 @media (max-width: 576px) {
   .footer {
-      padding: 10px;
+    padding: 10px;
   }
 }

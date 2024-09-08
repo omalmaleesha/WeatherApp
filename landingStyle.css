@@ -1,102 +1,105 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
 .background-image {
-    background-image: url('img/landing2.jpg'); /* Replace with your image path */
-    background-size: cover; /* Scale the background image to cover the entire container */
-    background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Prevent the background image from repeating */
-    height: 100vh; /* Make the div cover the full viewport height */
-    display: flex; /* Center content inside the div */
-    align-items: center;
-    justify-content: center;
-    color: white; /* Text color for better visibility */
-    text-align: center;
+  background-image: url("img/landing2.jpg"); /* Replace with your image path */
+  background-size: cover; /* Scale the background image to cover the entire container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+  height: 100vh; /* Make the div cover the full viewport height */
+  display: flex; /* Center content inside the div */
+  align-items: center;
+  justify-content: center;
+  color: white; /* Text color for better visibility */
+  text-align: center;
 }
 .typewriter {
-    overflow: hidden; /* Ensures the content is not revealed until the animation */
-    border-right: .04em solid rgba(247, 0, 255, 0.76); /* The typewriter cursor */
-    white-space: nowrap; /* Keeps the content on a single line by default */
-    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-    letter-spacing: .15em; /* Adjust as needed */
-    animation: 
-      typing 3.5s steps(40, end),
-      blink-caret .75s step-end infinite;
-    font-size: 1.5rem; /* Default text size */
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.04em solid rgba(247, 0, 255, 0.76); /* The typewriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line by default */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.15em; /* Adjust as needed */
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  font-size: 1.5rem; /* Default text size */
 }
-.size{
-    font-size: 100px;
+.size {
+  font-size: 100px;
 }
-
 
 @keyframes typing {
-    from { width: 0 }
-    to { width: 78% } /* Adjust this percentage for different screen sizes */
+  from {
+    width: 0;
+  }
+  to {
+    width: 78%;
+  } /* Adjust this percentage for different screen sizes */
 }
 
 /* The typewriter cursor effect */
 @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: rgba(247, 0, 255, 0.76); }
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: rgba(247, 0, 255, 0.76);
+  }
 }
 
 /* Responsive adjustments for mobile view */
 @media (max-width: 480px) {
-    .typewriter {
-        white-space: normal; /* Allow text to wrap onto multiple lines */
-        letter-spacing: .05em; /* Reduce spacing for better fit */
-        animation: 
-          typing 3.5s steps(20, end),
-          blink-caret .75s step-end infinite;
-        width: 100%; /* Full width to allow for wrapping */
-        font-size: 1rem; /* Smaller text size for mobile */
-    }
-    .size{
-        font-size: 40px;
-    }
-
-    
+  .typewriter {
+    white-space: normal; /* Allow text to wrap onto multiple lines */
+    letter-spacing: 0.05em; /* Reduce spacing for better fit */
+    animation: typing 3.5s steps(20, end), blink-caret 0.75s step-end infinite;
+    width: 100%; /* Full width to allow for wrapping */
+    font-size: 1rem; /* Smaller text size for mobile */
+  }
+  .size {
+    font-size: 40px;
+  }
 }
-/* From Uiverse.io by alexroumi */ 
+/* From Uiverse.io by alexroumi */
 .buttonStyle {
-    padding: 15px 25px;
-    border: unset;
-    border-radius: 15px;
-    color: #212121;
-    z-index: 1;
-    background: #e8e8e8;
-    position: relative;
-    font-weight: 1000;
-    font-size: 19px;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    transition: all 250ms;
-    overflow: hidden;
-   }
-   
-   .buttonStyle::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    border-radius: 15px;
-    background-color: #212121;
-    z-index: -1;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    transition: all 250ms
-   }
-   
-   .buttonStyle:hover {
-    color: #e8e8e8;
-   }
-   
-   .buttonStyle:hover::before {
-    width: 100%;
-   }
+  padding: 15px 25px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 19px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+}
+
+.buttonStyle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #212121;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+}
+
+.buttonStyle:hover {
+  color: #e8e8e8;
+}
+
+.buttonStyle:hover::before {
+  width: 100%;
+}

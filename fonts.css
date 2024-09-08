@@ -1,27 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto+Slab:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto+Slab:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap");
 
+.lato-bold {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 60px;
+}
+@media (max-width: 767px) {
   .lato-bold {
-    font-family: "Lato", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 60px;
+    font-size: 40px; /* Adjust font size for smaller screens */
   }
-  @media (max-width: 767px) {
-    .lato-bold {
-        font-size: 40px; /* Adjust font size for smaller screens */
-    }
-    .dosis{
-        font-size: 10px;
-    }
+  .dosis {
+    font-size: 10px;
+  }
 }
 
 .dosis {
-    font-family: "Dosis", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 100;
-    font-style: normal;
-  }
-  
- 
-  
+  font-family: "Dosis", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
