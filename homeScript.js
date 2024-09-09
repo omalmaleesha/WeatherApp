@@ -7,9 +7,9 @@ const apiKeyPhoto = "KXf8BBZrbxsPUPAtu41mE1_PxSmcK8s1OaQrrfOSj9M";
 const apifornowtoday =
   "https://api.weatherapi.com/v1/forecast.json?key=85165bb0dba84049ada63652240109&q=London&days=1&aqi=yes&alerts=yes";
 
-// Wait until the DOM is fully loaded
+
 document.addEventListener("DOMContentLoaded", function () {
-  // Check if data exists in localStorage
+  
   if (data != null) {
     let city = data;
     const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=yes`;
@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     fetch(apiUrlPhoto)
       .then((response) => {
-        //check if the response is okay
         if (!response.ok) {
           throw new Error(`HTTP error! statuse: ${response.status}`);
         }
@@ -30,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log(imageUrl);
           const imageAlt = data.results[0].alt_description;
 
-          // Set the background image of the div
           document.getElementById(
             "location-div"
           ).style.backgroundImage = `url(${imageUrl})`;
@@ -47,7 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     fetch(apiUrl)
       .then((response) => {
-        // Check if the response is okay
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -56,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         console.log("Weather Data:", data);
 
-        // Extract and display weather information
 
         const temperature = data.current.temp_c;
         document.getElementById("Temperature").innerText = temperature + "°C";
@@ -80,45 +76,12 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch((error) => {
         console.error("Error fetching weather data:", error);
       });
-    //get the picture of the city
   } else {
     console.log("No city found in localStorage.");
   }
 });
 
-// function findWeatherImg(status){
-//     if(status != null){
-//         const apiUrlPhoto = `https://api.unsplash.com/search/photos?query=${status}&client_id=${apiKeyPhoto}`;
-//         fetch(apiUrlPhoto)
-//         .then(response =>{
-//             //check the response is okay
-//             if(!response.ok){
-//                 throw new Error(`HTTP error! status: ${response.status}`);
-//             }
-//             return response.json();
-//         })
-//         .then(data =>{
-//             console.log('Location photos:', data);
-//                 if (data.results.length > 0) {
-//                     const imageUrl = data.results[0].urls.regular;
-//                     console.log(imageUrl);
-//                     const imageAlt = data.results[0].alt_description;
 
-//                     // Set the background image of the div
-//                     document.getElementById('location-divMain').style.backgroundImage = `url(${imageUrl})`;
-//                     document.getElementById('location-divMain').style.backgroundSize = `cover`;
-//                     document.getElementById('location-divMain').style.backgroundPosition = `center`;
-//                     document.getElementById('location-divMain').style.height = `570px`;
-
-//                 } else {
-//                     console.log('No images found for this location.');
-//                 }
-//         })
-//         .catch(error => {
-//             console.error('Error fetching the location photo:', error);
-//         });
-//     }
-// }
 
 function fetchDataOfComingclimate(city) {
   if (city != null) {
@@ -134,13 +97,11 @@ function fetchDataOfComingclimate(city) {
         if (data.forecast && data.forecast.forecastday.length > 0) {
           const forecastDays = data.forecast.forecastday;
 
-          // Ensure we loop for exactly 6 cards, even if there are fewer days in the forecast
           const numDays = Math.min(6, forecastDays.length);
 
           for (let i = 0; i < 6; i++) {
             const index = i + 1; // IDs start from 1
             if (i < numDays) {
-              // Fill card with forecast data
               const dates = forecastDays[i].day;
 
               const textClimate = dates.condition.text;
@@ -162,11 +123,11 @@ function fetchDataOfComingclimate(city) {
                 "details" + index
               ).innerHTML = `Wind: ${wind} mph, UV: ${uv}, Humidity: ${humidity}%`;
             } else {
-              // Placeholder for missing forecast data
+            
               document.getElementById("textOftheCard" + index).innerText =
                 "No data available";
               document.getElementById("iconOfTheCard" + index).src =
-                "img/paris.jpg"; // Placeholder image
+                "img/paris.jpg"; 
               document.getElementById("textOftheCardTemp" + index).innerText =
                 "--°C";
               document.getElementById("details" + index).innerText =

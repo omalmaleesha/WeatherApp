@@ -17,15 +17,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 address.city || address.town || address.village || "Unknown";
               const country = address.country || "Unknown";
 
-              console.log("City name:", city); // Check the city name in the console
+              console.log("City name:", city); 
 
-              // Update the UI with the fetched location
               document.getElementById(
                 "cityName"
               ).innerText = `${city}, ${country}`;
               document.getElementById("city").innerText = city;
 
-              // Call the getCurrentDetails function with the city name
               getCurrentDetail(city);
               fetchDataOfComingclimate(city);
             })
@@ -47,26 +45,22 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("load", function () {
     const storedDivs = JSON.parse(localStorage.getItem("customDivs")) || [];
     storedDivs.forEach((storedData) => {
-      addNewDiv(storedData.city, storedData.index, storedData.weather); // Restore div and weather data
+      addNewDiv(storedData.city, storedData.index, storedData.weather); 
     });
   });
 
-  //Add event listener to the "Add Location" button
   document.getElementById("addDivBtn").addEventListener("click", function () {
-    // Get the input value
+    
     const inputValue = document.getElementById("textNewInput").value;
 
-    // Store the input value in the global variable
     locationInputValue = inputValue;
     console.log(locationInputValue);
 
-    // For demonstration, you can log the value
     console.log("Location entered:", locationInputValue);
   });
 
   const container = document.getElementById("divRow");
 
-  // Function to add a new div with video background
   function addNewDiv(text, index, weatherData = null) {
     const newDiv = document.createElement("div");
     newDiv.className = "col-lg-4 col-md-6 col-sm-12";
@@ -102,32 +96,25 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             </div>
         `;
-    container.insertBefore(newDiv, container.firstChild); // Add to the front
+    container.insertBefore(newDiv, container.firstChild); 
 
-    // Update the div with fetched weather data if available
     if (weatherData) {
       updateDivWithWeatherData(weatherData, index);
     }
 
-    // Add event listener to remove the div when the remove button is clicked
     document
       .querySelector(`[data-index="${index}"]`)
       .addEventListener("click", function () {
         removeDiv(index);
       });
   }
-
-  // Add div with video and save to sessionStorage when button is clicked
-  // Add div with video and save to localStorage when button is clicked
   document.getElementById("addDivBtn").addEventListener("click", function () {
     const locationInput = locationInputValue; // Get the city name from input
 
-    // Add the new div to the container
     addNewDiv(locationInput, index);
     fetchDataDiv(locationInput, index);
     index++;
 
-    // Save the new div and weather data to localStorage
     const storedDivs = JSON.parse(localStorage.getItem("customDivs")) || [];
     storedDivs.unshift({ city: locationInput, index: index - 1 }); // Store the city and index
     localStorage.setItem("customDivs", JSON.stringify(storedDivs));
@@ -170,7 +157,7 @@ function fetchDataDiv(name, index) {
     .then((data) => {
       console.log("Weather Data:", data);
 
-      // Extract weather data
+      
       const weatherData = {
         city: name,
         temperature: data.current.temp_c,
@@ -183,14 +170,12 @@ function fetchDataDiv(name, index) {
         index: index,
       };
 
-      // Update the div with fetched weather data
       updateDivWithWeatherData(weatherData, index);
 
-      // Save the fetched data in localStorage
       const storedDivs = JSON.parse(localStorage.getItem("customDivs")) || [];
       const divIndex = storedDivs.findIndex((div) => div.index === index);
       if (divIndex !== -1) {
-        storedDivs[divIndex].weather = weatherData; // Store weather data for the existing entry
+        storedDivs[divIndex].weather = weatherData; 
         localStorage.setItem("customDivs", JSON.stringify(storedDivs));
       }
     })
@@ -199,7 +184,6 @@ function fetchDataDiv(name, index) {
     });
 }
 
-// Function to update div with the fetched weather data
 function updateDivWithWeatherData(data, index) {
   document.getElementById("tempC" + index).innerText = data.temperature + "°C";
   document.getElementById("text" + index).innerText = data.condition;
@@ -209,7 +193,6 @@ function updateDivWithWeatherData(data, index) {
   document.getElementById("time" + index).innerText = data.time;
   document.getElementById("iconCity" + index).src = data.icon;
 }
-// Remove div from page and localStorage
 function removeDiv(index) {
   // Remove div from the page
   const divToRemove = document.getElementById(`div-${index}`);
@@ -217,9 +200,8 @@ function removeDiv(index) {
     divToRemove.remove();
   }
 
-  // Remove div from localStorage
   let storedDivs = JSON.parse(localStorage.getItem("customDivs")) || [];
-  storedDivs = storedDivs.filter((div) => div.index !== index); // Remove the div with the matching index
+  storedDivs = storedDivs.filter((div) => div.index !== index);
   localStorage.setItem("customDivs", JSON.stringify(storedDivs));
 }
 
@@ -238,7 +220,6 @@ function getCurrentDetail(name) {
     .then((data) => {
       console.log("Weather Data:", data);
 
-      // Extract and display weather information
       const temperature = data.current.temp_c;
       document.getElementById("TemperatureMain").innerText = temperature + "°C";
       const condition = data.current.condition.text;
@@ -253,7 +234,6 @@ function getCurrentDetail(name) {
       const icon = data.current.condition.icon;
       document.getElementById("icon-imgs").src = icon;
 
-      // Fetch future climate data (assuming you have another function for that)
     })
     .catch((error) => {
       console.error("Error fetching weather data:", error);
@@ -262,7 +242,7 @@ function getCurrentDetail(name) {
 
 function fetchDataOfComingclimate(name) {
   const city = name;
-  const apiKey = "85165bb0dba84049ada63652240109"; // Replace with your actual API key
+  const apiKey = "85165bb0dba84049ada63652240109"; 
   const apiUrl = `http://api.weatherapi.com/v1/marine.json?key=${apiKey}&q=${city}&days=5`;
 
   fetch(apiUrl)
@@ -276,13 +256,12 @@ function fetchDataOfComingclimate(name) {
       if (data.forecast && data.forecast.forecastday.length > 0) {
         const forecastDays = data.forecast.forecastday;
 
-        // Ensure we loop for exactly 6 cards, even if there are fewer days in the forecast
         const numDays = Math.min(5, forecastDays.length);
 
         for (let i = 0; i < 5; i++) {
-          const index = i + 1; // IDs start from 1
+          const index = i + 1; 
           if (i < numDays) {
-            // Fill card with forecast data
+            
             const dates = forecastDays[i].day;
             const dateOfCurrent = forecastDays[i].date;
             document.getElementById("date" + index).innerText = dateOfCurrent;
@@ -303,8 +282,8 @@ function fetchDataOfComingclimate(name) {
               "more" + index
             ).innerText = `Wind: ${wind} mph, Humidity: ${humidity}%`;
           } else {
-            // Placeholder for missing forecast data
-            document.getElementById("img-card" + index).src = "img/paris.jpg"; // Placeholder image
+         
+            document.getElementById("img-card" + index).src = "img/paris.jpg"; 
             document.getElementById("weather" + index).innerText = "--°C";
             document.getElementById("tempF" + index).innerText = "--°F";
             document.getElementById("more" + index).innerText =
@@ -315,7 +294,6 @@ function fetchDataOfComingclimate(name) {
         console.log("No climate data available");
       }
 
-      // Fetch future climate data (assuming you have another function for that)
     })
     .catch((error) => {
       console.error("Error fetching weather data:", error);
